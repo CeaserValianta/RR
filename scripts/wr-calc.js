@@ -265,11 +265,11 @@ var fixturesLoaded = function (fixtures, rankings, event) {
             if (e.venue) {
                 fixture.venueNameAndCountry = [e.venue.name, e.venue.country].join(', ');
                 fixture.venueCity = e.venue.city;
-                queryTeam(e.teams[0].id).done(function(teamData) {
-                    if (e.venue.country !== teamData.country) {
+                queryTeam(e.teams[0].id).done(function(homeTeamData) {
+                    if (e.venue.country !== homeTeamData.country && !(e.venue.country == 'Northern Ireland' && homeTeamData.country == 'Ireland')) {
                         if (e.teams[1]) {
-                            queryTeam(e.teams[1].id).done(function(teamData) {
-                                if (e.venue.country === teamData.country) {
+                            queryTeam(e.teams[1].id).done(function(awayTeamData) {
+                                if (e.venue.country === awayTeamData.country && !(e.venue.country == 'Northern Ireland' && awayTeamData.country == 'Ireland')) {
                                     // Saw this in the Pacific Nations Cup 2019 - a team was nominally Away
                                     // but in a home stadium. They seemed to get home nation advantage.
                                     if (tournamentRespectsStadiumLocation) {
