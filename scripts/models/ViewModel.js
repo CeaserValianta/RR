@@ -311,6 +311,11 @@ var ViewModel = function (source) {
         if (!pools || !poolChoice || !pools.find(function (p) { return p.pool == poolChoice} )) return null;
         return pools.find(function (p) { return p.pool == poolChoice} );
     }, this);
+    
+    this.multiplePools = ko.computed(function () {
+        var pools = this.pools();
+        return pools && pools.length > 1;
+    }, this);
 
     // Whichever set of rankings is chosen.
     this.shownRankings = ko.computed(function () {

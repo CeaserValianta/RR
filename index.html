@@ -158,7 +158,7 @@
                             <!-- ko if: triesMatter -->
                             <td class="details-center">Tries</td>
                             <!-- /ko -->
-                            <td class="details-center" colspan="4" data-bind="text: ($data.eventPhase && $data.liveScoreMode) ? ($data.eventPhase + ' (' + $data.liveScoreMode + ')') : ($data.eventPhase || $data.liveScoreMode), attr: { colspan: $data.triesMatter() ? 4 : 6 }"></td>
+                            <td class="details-center" colspan="4" data-bind="text: ($parent.multiplePools() && $data.eventPhase && $data.liveScoreMode) ? ($data.eventPhase + ' (' + $data.liveScoreMode + ')') : (($parent.multiplePools() && $data.eventPhase) || $data.liveScoreMode), attr: { colspan: $data.triesMatter() ? 4 : 6 }"></td>
                             <!-- ko if: triesMatter -->
                             <td class="details-center">Tries</td>
                             <!-- /ko -->
